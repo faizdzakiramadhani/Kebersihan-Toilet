@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kebersihan Toilet</title>
+    <title>index</title>
 </head>
 <body>
     
 </body>
-<style>@import url(style.css);</style>
-<script src="script.js"></script>
 </html>
