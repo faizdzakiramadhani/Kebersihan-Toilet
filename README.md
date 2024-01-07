@@ -2,5 +2,5 @@
 Tugas Kelompok (UAS Web)
 
 - php (selesai)
-- css (selesai)
-- webhosting (selesai)
+- css (belum)
+- webhosting (belum)
