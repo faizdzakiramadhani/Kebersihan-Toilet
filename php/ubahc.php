@@ -6,6 +6,9 @@ if(!isset($_SESSION['login'])) {
 }
 require 'functions.php';
 $id = $_GET['id'];
+$tampilc = query("SELECT * FROM checklist where id='$id'")[0];
+$tolid = query("SELECT * FROM toilet");
+$userid = query("SELECT * FROM users");
 
 if(isset($_POST['ubahc'])) {
     ubahchecklist($_POST);
@@ -23,20 +26,34 @@ if(isset($_POST['ubahc'])) {
 <a href="index.php">Kembali</a>
     <div id="formChecklist" style="display: block;">
         <h2>Ubah Data Checklist</h2>
+        <ul>Data sebelumnya
+            <li>Tanggal= <?= $tampilc['tanggal']; ?></li>
+            <li>Toilet id= <?= $tampilc['toilet_id']; ?></li>
+            <li>Kloset= <?= $tampilc['kloset']; ?></li>
+            <li>Wastafel= <?= $tampilc['wastafel']; ?></li>
+            <li>Lantai= <?= $tampilc['lantai']; ?></li>
+            <li>Dinding= <?= $tampilc['dinding']; ?></li>
+            <li>Kaca= <?= $tampilc['kaca']; ?></li>
+            <li>Sabun= <?= $tampilc['sabun']; ?></li>
+            <li>Bau= <?= $tampilc['bau']; ?></li>
+            <li>User id= <?= $tampilc['users_id']; ?></li>
+            <li>NIM= <?= $tampilc['nim']; ?></li>
+        </ul>
+
         <form action="" method="post">
-        <input type="hidden" name='' value="">
-            <ul>
+        <input type="hidden" name='id' value="<?= $tampilc['id']; ?>">
+            <ul>Data yang mau diubah
                 <li>
                     <label for="">Tanggal: </label>
-                    <input type="datetime-local" name="" id="" required>
+                    <input type="datetime-local" name="tanggal" id="" required>
                 </li>
                 <li>
                     <label for="">Toilet id: </label>
-                    <input type="text" name="" id="" required>
-                </li>
-                <li>
-                    <label for="">Petugas id: </label>
-                    <input type="text" name="" id="" required>
+                    <select name="toilet_id" id="">
+                        <?php foreach($tolid as $ti) : ?>
+                            <option value="<?= $ti['id']; ?>"><?= $ti['id']; ?> <?= $ti['lokasi']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </li>
                 <li>
                     <label for="">Kloset: </label>
@@ -100,7 +117,20 @@ if(isset($_POST['ubahc'])) {
                         <option value="Tidak">Tidak</option>
                     </select>
                 </li>
-                <button type="submit" name="ubaht">Ubah Checklist</button>
+                <li>
+                    <label for="">User id: </label>
+                    <select name="users" id="">
+                        <?php foreach($userid as $ui) : ?>
+                            <option value="<?= $ui['id']; ?>"><?= $ui['id']; ?> <?= $ui['username']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+
+                </li>
+                <li>
+                    <label for="">NIM: </label>
+                    <input type="text" name="nim" id="">
+                </li>
+                <button type="submit" name="ubahc">Ubah Checklist</button>
             </ul>
         </form>
     </div>

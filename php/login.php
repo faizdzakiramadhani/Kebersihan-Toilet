@@ -7,7 +7,7 @@ if(isset($_SESSION['login'])) {
     exit;
 } 
 require 'functions.php';
- 
+
 if(isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -24,8 +24,10 @@ if(isset($_POST['login'])) {
             // kebalikan dari password_hash = mengacak string jadi hash
             $_SESSION['login'] = true;
             header('location: index.php');
+            $_SESSION['nama'] = $username;
             exit();
         }
+        
     }
     $error = true;
 }

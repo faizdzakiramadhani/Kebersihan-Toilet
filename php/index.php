@@ -31,11 +31,12 @@ if(isset($_POST['caritoilet'])) {
     <title>index</title>
 </head>
 <body>
-    <h1>Selamat Datang,</h1>
+    <a href="logout.php">Logout</a>
+    <h1>Selamat Datang, <?= $_SESSION['nama']; ?></h1>
 
     <h2>Checklist</h2>
     <a href="tambah.php">Tambah</a>
-    <form action="" method="post">
+    <form action="" method="post" hidden>
         <input type="text" name="keyword" id="" autocomplete="off" placeholder="masukkan nim">
         <button type="submit" name="carichecklist">Cari</button>
     </form>
@@ -53,7 +54,7 @@ if(isset($_POST['caritoilet'])) {
             <th>kaca</th>
             <th>bau</th>
             <th>sabun</th>
-            <th>Petugas id</th>
+            <th>NIM</th>
             
         </tr>
         <?php $i=1; ?>
@@ -80,7 +81,7 @@ if(isset($_POST['caritoilet'])) {
 
     <h2>Toilet</h2>
     <a href="tambah.php">Tambah</a>
-    <form action="" method="post">
+    <form action="" method="post" hidden>
         <input type="text" name="keyword" id="" autocomplete="off" placeholder="masukkan lokasi">
         <button type="submit" name="caritoilet">Cari</button>
     </form>

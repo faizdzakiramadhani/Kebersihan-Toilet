@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Jan 2024 pada 09.03
+-- Waktu pembuatan: 07 Jan 2024 pada 16.03
 -- Versi server: 10.4.27-MariaDB
 -- Versi PHP: 8.2.0
 
@@ -47,8 +47,10 @@ CREATE TABLE `checklist` (
 --
 
 INSERT INTO `checklist` (`id`, `tanggal`, `toilet_id`, `kloset`, `wastafel`, `lantai`, `dinding`, `kaca`, `bau`, `sabun`, `users_id`, `nim`) VALUES
-(31, '2024-01-01 09:32:48', 10, 'Bersih', 'Kotor', 'Kotor', 'Kotor', 'Bersih', 'Kotor', 'ada', 0, ''),
-(40, '2024-01-04 11:24:43', 11, 'Bersih', 'Kotor', 'Bersih', 'Kotor', 'Kotor', 'Ya', 'ada', 3, '123');
+(44, '2024-01-07 21:45:00', 10, 'Bersih', 'Kotor', 'Kotor', 'Kotor', 'Rusak', 'Ya', 'Hilang', 1, '12121'),
+(48, '2024-01-07 21:43:00', 10, 'Kotor', 'Bersih', 'Kotor', 'Bersih', 'Rusak', 'Tidak', 'Ada', 3, '12345'),
+(49, '2024-01-09 19:45:00', 11, 'Kotor', 'Bersih', 'Bersih', 'Kotor', 'Bersih', 'Tidak', 'Ada', 3, '312210192'),
+(50, '2024-01-07 21:44:00', 25, 'Kotor', 'Kotor', 'Rusak', 'Rusak', 'Bersih', 'Tidak', 'Habis', 3, '312210192');
 
 -- --------------------------------------------------------
 
@@ -68,7 +70,9 @@ CREATE TABLE `toilet` (
 
 INSERT INTO `toilet` (`id`, `lokasi`, `keterangan`) VALUES
 (10, 'Room1', 'Belum'),
-(11, 'Room2', 'Belum');
+(11, 'Room2', 'Belum'),
+(25, 'Room3', 'Belum'),
+(26, 'Room4', 'Belum');
 
 -- --------------------------------------------------------
 
@@ -129,13 +133,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `checklist`
 --
 ALTER TABLE `checklist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT untuk tabel `toilet`
 --
 ALTER TABLE `toilet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`

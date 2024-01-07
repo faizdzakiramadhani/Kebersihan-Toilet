@@ -7,6 +7,9 @@ if(!isset($_SESSION['login'])) {
 
 require 'functions.php';
 
+$userid = query("SELECT * FROM users");
+$tolid = query("SELECT * FROM toilet");
+
 if(isset($_POST['tambaht'])) {
     tambahchecklist($_POST);
 }
@@ -14,7 +17,9 @@ if(isset($_POST['tambaht'])) {
 if(isset($_POST['tambahc'])) {
     tambahtoilet($_POST);
 }
-?>
+
+
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +45,11 @@ if(isset($_POST['tambahc'])) {
                 </li>
                 <li>
                     <label for="">Toilet id: </label>
-                    <input type="text" name="toilet_id" id="" required>
+                    <select name="toilet_id" id="">
+                        <?php foreach($tolid as $ti) : ?>
+                            <option value="<?= $ti['id']; ?>"><?= $ti['id']; ?> <?= $ti['lokasi']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </li>
                 
                 <li>
@@ -107,7 +116,11 @@ if(isset($_POST['tambahc'])) {
                 </li>
                 <li>
                     <label for="">users id: </label>
-                    <input type="text" name="users" id="">
+                    <select name="users" id="">
+                        <?php foreach($userid as $ui) : ?>
+                            <option value="<?= $ui['id']; ?>"><?= $ui['id']; ?> <?= $ui['username']; ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </li>
                 <li>
                     <label for="">nim: </label>

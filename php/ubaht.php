@@ -6,13 +6,11 @@ if(!isset($_SESSION['login'])) {
 }
 require 'functions.php';
 $id = $_GET['id'];
+$tampilt = query("SELECT * FROM toilet where id=$id")[0];
 
- 
 if(isset($_POST['ubaht'])) {
     ubahtoilet($_POST);
 }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -26,9 +24,13 @@ if(isset($_POST['ubaht'])) {
 <a href="index.php">Kembali</a>
     <div id="formToilet" style="display: block;">
         <h2>Ubah Data Toilet</h2>
+        <ul>Data sebelumnya
+            <li>Lokasi= <?= $tampilt['lokasi']; ?></li>
+            <li>Keterangan= <?= $tampilt['keterangan']; ?></li>
+        </ul>
         <form action="" method="post" style="display: block;">
-            <input type="hidden" name='' value="">
-            <ul>
+            <input type="hidden" name='id' value="<?= $tampilt['id']; ?>">
+            <ul>Data yang mau diubah
                 <li>
                     <label for="">Lokasi: </label>
                     <input type="text" name="lokasi" id="" value="" required>
@@ -41,7 +43,7 @@ if(isset($_POST['ubaht'])) {
                         <option value="Sudah">Sudah</option>
                     </select>
                 </li>
-                <button type="submit" name="ubahc">Ubah Toilet</button>
+                <button type="submit" name="ubaht">Ubah Toilet</button>
             </ul>
         </form>
     </div>

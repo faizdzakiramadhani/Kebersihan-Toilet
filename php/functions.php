@@ -45,7 +45,7 @@ function tambahchecklist($data) {
     $nim = htmlspecialchars($data['nim']);
 
     try {
-        $tambahdata = "INSERT INTO checklist VALUE ('','$tgl','','$kloset','$wastafel','$lantai','$dinding','$kaca','$bau','$sabun','','$nim')";
+        $tambahdata = "INSERT INTO checklist VALUE ('','$tgl','$toiletid','$kloset','$wastafel','$lantai','$dinding','$kaca','$bau','$sabun','$users','$nim')";
         mysqli_query($conn, $tambahdata);
     } catch (mysqli_sql_exception $e) {
         echo "Error: " . $e->getMessage();
@@ -60,16 +60,18 @@ function tambahchecklist($data) {
     }
 }
 
-function ubahtoilet($id) {
+function ubahtoilet($data) {
     global $conn;
-    $lokasi = htmlspecialchars($id['lokasi']);
-    $ket = htmlspecialchars($id['keterangan']);
+
+    $id = $data['id'];
+    $lokasi = htmlspecialchars($data['lokasi']);
+    $ket = htmlspecialchars($data['keterangan']);
 
     $ubaht = "UPDATE toilet SET
     lokasi='$lokasi',
     keterangan='$ket'
-    WHERE id=$id
-    ";
+    WHERE id=$id";
+    var_dump($id);
     mysqli_query($conn, $ubaht);
 
     if(mysqli_affected_rows($conn)>0) {
@@ -80,22 +82,24 @@ function ubahtoilet($id) {
     }
 }
 
-function ubahchecklist($id) {
+function ubahchecklist($data) {
     global $conn;
-    $tgl = htmlspecialchars($id['tanggal']);
-    $toiletid = htmlspecialchars($id['toilet_id']);
-    $kloset = htmlspecialchars($id['kloset']);
-    $wastafel = htmlspecialchars($id['wastafel']);
-    $lantai = htmlspecialchars($id['lantai']);
-    $dinding = htmlspecialchars($id['dinding']);
-    $kaca = htmlspecialchars($id['kaca']);
-    $bau = htmlspecialchars($id['bau']);
-    $sabun = htmlspecialchars($id['sabun']);
-    $users = htmlspecialchars($id['users']);
-    $nim = htmlspecialchars($id['nim']);
+
+    $id = $data['id'];
+    $tgl = htmlspecialchars($data['tanggal']);
+    $toiletid = htmlspecialchars($data['toilet_id']);
+    $kloset = htmlspecialchars($data['kloset']);
+    $wastafel = htmlspecialchars($data['wastafel']);
+    $lantai = htmlspecialchars($data['lantai']);
+    $dinding = htmlspecialchars($data['dinding']);
+    $kaca = htmlspecialchars($data['kaca']);
+    $bau = htmlspecialchars($data['bau']);
+    $sabun = htmlspecialchars($data['sabun']);
+    $users = htmlspecialchars($data['users']);
+    $nim = htmlspecialchars($data['nim']);
 
     $ubahc = "UPDATE checklist SET
-    tgl='$tgl',
+    tanggal='$tgl',
     toilet_id='$toiletid',
     kloset='$kloset',
     wastafel='$wastafel',
@@ -106,8 +110,7 @@ function ubahchecklist($id) {
     sabun='$sabun',
     users_id='$users',
     nim='$nim'
-    WHERE id=$id
-    ";
+    WHERE id=$id";
     mysqli_query($conn, $ubahc);
 
     if(mysqli_affected_rows($conn)>0) {
@@ -152,7 +155,7 @@ function registrasi($data){
     $password = mysqli_real_escape_string($conn, $data['password']);
         // untuk memasukkan tanda kutipnya ke database secara aman 
     $password2 = mysqli_real_escape_string($conn, $data['password2']);
-
+ 
     $nama = ($data['nama']);
     $email = ($data['email']);
     $status = ($data['status']);
@@ -187,5 +190,13 @@ function registrasi($data){
 
     return mysqli_affected_rows($conn);
 }
+
+function nama($data) {
+    global $conn;
+
+    $nama = $data['nama'];
+    return $nama;
+}
+
 
 ?>
