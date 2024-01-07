@@ -1,6 +1,6 @@
 <?php
 // koneksi ke database
-$conn = mysqli_connect('localhost', 'root', '', 'phpdasar');
+$conn = mysqli_connect('localhost', 'root', '', 'db_checklist');
     // ini variabel scope
 
 /*
@@ -102,7 +102,7 @@ function registrasi($data){
     $password2 = mysqli_real_escape_string($conn, $data['password2']);
 
     // cek username di database udah ada apa belum
-    $result = mysqli_query($conn, "SELECT username FROM user WHERE username= '$username'");
+    $result = mysqli_query($conn, "SELECT username FROM users WHERE username= '$username'");
 
     if(mysqli_fetch_assoc($result)) {
             // jika true, eksekusi program dibawah

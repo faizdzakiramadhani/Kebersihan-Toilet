@@ -5,7 +5,7 @@ session_start();
 if(isset($_SESSION['login'])) {
     header('location: index.php');
     exit;
-} 
+}
 require 'functions.php';
  
 if(isset($_POST['login'])) {
@@ -28,11 +28,6 @@ if(isset($_POST['login'])) {
         }
     }
     $error = true;
-}
-
-if(isset($_POST['register'])) {
-    header('location: registrasi.php');
-    exit();
 }
 
 ?>
@@ -59,9 +54,9 @@ if(isset($_POST['register'])) {
                 <label for="password">password: </label>
                 <input type="password" name="password" id="password">
             </li>
-            <button type='submit' name='login'>Kirim</button>
-            <button type='submit' name='register'>Register</button>
-            
+            <li>
+                <button type='submit' name='login'>Kirim</button>
+            </li>
         </ul>
     </form>
 </body>
