@@ -1,6 +1,6 @@
 # Project Kebersihan Toilet 
 Tugas Kelompok (UAS Web)
 
-- php -> davin
-- css -> akram
+- pengelola database -> davin
+- desain web -> akram
 - webhosting -> faiz
