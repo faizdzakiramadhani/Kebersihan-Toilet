@@ -64,6 +64,7 @@ if(isset($_POST['register'])) {
         <p style="color:red; font-style: italic;">Username / password salah</p>
     <?php endif; ?>
     <form action="" method='post'>
+        <h3>Login</h3>
         <ul>
             <li>
                 <label for="username">username: </label>
