@@ -45,13 +45,26 @@ if(isset($_POST['register'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <style media="screen">
+        @import url(../css/login.css);
+    </style>
 </head>
 <body>
-    <h1>Halaman login</h1>
+    <!--
+    <img src="https://treehouse.co/uploads/ciekawa-tapeta-w-lazience.jpg" alt="wallpaper_toilet" class="background">
+
+    <h1 class="background:before">Halaman login</h1>
+-->
     <?php if(isset($error)): ?>
         <p style="color:red; font-style: italic;">Username / password salah</p>
     <?php endif; ?>
     <form action="" method='post'>
+        <h3>Login</h3>
         <ul>
             <li>
                 <label for="username">username: </label>
@@ -66,5 +79,6 @@ if(isset($_POST['register'])) {
             
         </ul>
     </form>
+    
 </body>
 </html>

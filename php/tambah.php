@@ -27,6 +27,7 @@ if(isset($_POST['tambahc'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah toilet dan checklist</title>
+    <style>@import url(../css/tambah.css);</style>
 </head>
 <body>
 <div class="tombform">
