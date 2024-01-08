@@ -11,3 +11,27 @@
 ## Link pdf
 
 ## Link web hosting
+
+# Tampilan pada halaman situs web
+
+1. Tampilan login
+![](img/login.png)
+
+2. Tampilan register
+![](img/register.png)
+
+3. Tampilan index
+![](img/index.png)
+
+4. Tampilan Tambah Checklist
+![](img/tambah%20cheklist.png)
+
+5. Tampilan Tambah Toilet
+![](img/tambah%20toilet.png)
+
+6. Tampilan Ubah Checklist
+![](img/ubah%20chekclist.png)
+
+7. Tampilan Ubah Toilet
+![](img/ubah%20toilet.png)
+
